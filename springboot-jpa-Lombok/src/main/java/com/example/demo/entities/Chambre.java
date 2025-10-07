@@ -3,16 +3,26 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
-@Table(name = "table_chambre")
 public class Chambre {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    private  String type;
+    private  Long numeroChambre;
+
+    private  TypeChambre typeC;
+
+    @OneToMany
+    private List<Reservation> reservations;
+
+    @ManyToOne
+    private Bloc bloc;
+
 
 
 }
