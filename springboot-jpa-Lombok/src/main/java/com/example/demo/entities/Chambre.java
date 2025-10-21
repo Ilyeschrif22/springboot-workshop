@@ -15,6 +15,7 @@ public class Chambre {
 
     private  Long numeroChambre;
 
+    @Enumerated(EnumType.STRING)
     private  TypeChambre typeC;
 
     @OneToMany

@@ -14,7 +14,7 @@ public class ChambreController {
 
     private final IChambre ichambre;
 
-    @PostMapping("/ajout")
+    @PostMapping("/add")
     public Chambre ajout(@RequestBody Chambre chambre) {
         return ichambre.addChambre(chambre);
     }
@@ -23,5 +23,16 @@ public class ChambreController {
     public List<Chambre> getAll() {
         return ichambre.allChambres();
     }
+
+    @PutMapping("/update")
+    public Chambre update(@RequestBody Chambre chambre) {
+        return ichambre.updateChambre(chambre);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Long id) {
+        ichambre.deleteChambre(id);
+    }
+
 
 }
